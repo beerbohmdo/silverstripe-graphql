@@ -2,7 +2,6 @@
 
 namespace Chillu\GraphQL;
 
-use Doctrine\Instantiator\Exception\InvalidArgumentException;
 use GraphQL\Schema;
 use GraphQL\GraphQL;
 use SilverStripe\Core\Injector\Injector;
@@ -46,7 +45,7 @@ class Manager
             foreach ($config['types'] as $name => $typeCreatorClass) {
                 $typeCreator = Injector::inst()->create($typeCreatorClass, $manager);
                 if (!($typeCreator instanceof TypeCreator)) {
-                    throw new InvalidArgumentException(sprintf(
+                    throw new \InvalidArgumentException(sprintf(
                         'The type named "%s" needs to be a class extending ' . TypeCreator::class,
                         $name
                     ));
@@ -62,7 +61,7 @@ class Manager
             foreach ($config['queries'] as $name => $queryCreatorClass) {
                 $queryCreator = Injector::inst()->create($queryCreatorClass, $manager);
                 if (!($queryCreator instanceof QueryCreator)) {
-                    throw new InvalidArgumentException(sprintf(
+                    throw new \InvalidArgumentException(sprintf(
                         'The type named "%s" needs to be a class extending ' . QueryCreator::class,
                         $name
                     ));
@@ -78,7 +77,7 @@ class Manager
             foreach ($config['mutations'] as $name => $mutationCreatorClass) {
                 $mutationCreator = Injector::inst()->create($mutationCreatorClass, $manager);
                 if (!($mutationCreator instanceof MutationCreator)) {
-                    throw new InvalidArgumentException(sprintf(
+                    throw new \InvalidArgumentException(sprintf(
                         'The mutation named "%s" needs to be a class extending ' . MutationCreator::class,
                         $name
                     ));
