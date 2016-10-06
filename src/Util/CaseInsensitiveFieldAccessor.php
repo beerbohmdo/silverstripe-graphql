@@ -2,10 +2,10 @@
 
 namespace Chillu\GraphQL\Util;
 
-use SilverStripe\ORM\DataObject;
-use SilverStripe\Core\ClassInfo;
-use SilverStripe\View\ViewableData;
+use ClassInfo;
+use DataObject;
 use InvalidArgumentException;
+use ViewableData;
 
 /**
  * Infer original field name casing from case insensitive field comparison.

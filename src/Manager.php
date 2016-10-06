@@ -2,12 +2,13 @@
 
 namespace Chillu\GraphQL;
 
-use GraphQL\Schema;
-use GraphQL\GraphQL;
-use SilverStripe\Core\Injector\Injector;
-use GraphQL\Type\Definition\ObjectType;
 use GraphQL\Error;
+use GraphQL\GraphQL;
+use GraphQL\Schema;
+use GraphQL\Type\Definition\ObjectType;
 use GraphQL\Type\Definition\Type;
+use Injector;
+use InvalidArgumentException;
 
 class Manager
 {
@@ -45,7 +46,7 @@ class Manager
             foreach ($config['types'] as $name => $typeCreatorClass) {
                 $typeCreator = Injector::inst()->create($typeCreatorClass, $manager);
                 if (!($typeCreator instanceof TypeCreator)) {
-                    throw new \InvalidArgumentException(sprintf(
+                    throw new InvalidArgumentException(sprintf(
                         'The type named "%s" needs to be a class extending ' . TypeCreator::class,
                         $name
                     ));
@@ -61,7 +62,7 @@ class Manager
             foreach ($config['queries'] as $name => $queryCreatorClass) {
                 $queryCreator = Injector::inst()->create($queryCreatorClass, $manager);
                 if (!($queryCreator instanceof QueryCreator)) {
-                    throw new \InvalidArgumentException(sprintf(
+                    throw new InvalidArgumentException(sprintf(
                         'The type named "%s" needs to be a class extending ' . QueryCreator::class,
                         $name
                     ));
@@ -77,7 +78,7 @@ class Manager
             foreach ($config['mutations'] as $name => $mutationCreatorClass) {
                 $mutationCreator = Injector::inst()->create($mutationCreatorClass, $manager);
                 if (!($mutationCreator instanceof MutationCreator)) {
-                    throw new \InvalidArgumentException(sprintf(
+                    throw new InvalidArgumentException(sprintf(
                         'The mutation named "%s" needs to be a class extending ' . MutationCreator::class,
                         $name
                     ));
@@ -174,7 +175,7 @@ class Manager
     public function getType($name)
     {
         if (!isset($this->types[$name])) {
-            throw new \InvalidArgumentException('Type '.$name.' does not exists');
+            throw new InvalidArgumentException('Type '.$name.' does not exists');
         }
 
         return $this->types[$name];
@@ -209,7 +210,7 @@ class Manager
     public function getQuery($name)
     {
         if (!isset($this->queries[$name])) {
-            throw new \InvalidArgumentException('Query '.$name.' does not exists');
+            throw new InvalidArgumentException('Query '.$name.' does not exists');
         }
 
         return $this->queries[$name];
@@ -243,7 +244,7 @@ class Manager
     public function getMutation($name)
     {
         if (!isset($this->mutations[$name])) {
-            throw new \InvalidArgumentException('Mutation '.$name.' does not exists');
+            throw new InvalidArgumentException('Mutation '.$name.' does not exists');
         }
 
         return $this->mutations[$name];

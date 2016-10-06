@@ -2,7 +2,6 @@
 
 namespace Chillu\GraphQL;
 
-use Chillu\GraphQL\Util\CaseInsensitiveFieldAccessor;
 use GraphQL\Type\Definition\Type;
 
 class DataObjectInterfaceTypeCreator extends InterfaceTypeCreator {

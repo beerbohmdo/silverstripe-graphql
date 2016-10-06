@@ -1,6 +1,6 @@
 ---
 Name: graphqlroutes
 ---
-SilverStripe\Control\Director:
+Director:
   rules:
     'graphql': 'Chillu\GraphQL\Controller'

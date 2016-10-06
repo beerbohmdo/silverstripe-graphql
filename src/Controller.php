@@ -2,13 +2,12 @@
 
 namespace Chillu\GraphQL;
 
-use SilverStripe\Control\Controller as BaseController;
-use SilverStripe\Control\HTTPRequest;
-use SilverStripe\Control\HTTPResponse;
-use SilverStripe\Core\Injector\Injector;
-use SilverStripe\Core\Config\Config;
-use SilverStripe\Control\Director;
+use Config;
+use Controller as BaseController;
+use Director;
 use Exception;
+use SS_HTTPRequest as HTTPRequest;
+use SS_HTTPResponse as HTTPResponse;
 
 /**
  * @todo CSRF protection (or token-based auth)

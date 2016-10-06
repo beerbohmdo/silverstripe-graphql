@@ -2,10 +2,9 @@
 
 namespace Chillu\GraphQL;
 
-use SilverStripe\Core\Object;
-use GraphQL\Type\Definition\ObjectType;
 use GraphQL\Type\Definition\InputObjectType;
-use Chillu\GraphQL\Manager;
+use GraphQL\Type\Definition\ObjectType;
+use Object;
 
 /**
  * Represents a GraphQL type in a way that allows customisation
