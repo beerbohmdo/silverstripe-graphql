@@ -174,7 +174,23 @@ class Manager
      */
     public function getType($name)
     {
+        if (!isset($this->types[$name])) {
+            throw new \InvalidArgumentException('Type '.$name.' does not exists');
+        }
+
         return $this->types[$name];
+    }
+
+    /**
+     * @param string $name
+     *
+     * @return \Closure
+     */
+    public function getTypeAsync($name)
+    {
+        return function () use ($name) {
+            return $this->getType($name);
+        };
     }
 
     /**
@@ -193,7 +209,22 @@ class Manager
      */
     public function getQuery($name)
     {
+        if (!isset($this->queries[$name])) {
+            throw new \InvalidArgumentException('Query '.$name.' does not exists');
+        }
+
         return $this->queries[$name];
+    }
+
+    /**
+     * @param string $name
+     * @return \Closure
+     */
+    public function getQueryAsync($name)
+    {
+        return function () use ($name) {
+            return $this->getQuery($name);
+        };
     }
 
     /**
@@ -212,7 +243,22 @@ class Manager
      */
     public function getMutation($name)
     {
+        if (!isset($this->mutations[$name])) {
+            throw new \InvalidArgumentException('Mutation '.$name.' does not exists');
+        }
+
         return $this->mutations[$name];
+    }
+
+    /**
+     * @param string $name
+     * @return \Closure
+     */
+    public function getMutationAsync($name)
+    {
+        return function () use ($name) {
+            return $this->getMutation($name);
+        };
     }
 
     /**
