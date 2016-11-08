@@ -1,23 +1,18 @@
 {
-  "name": "chillu/silverstripe-graphql",
+  "name": "silverstripe/graphql",
   "description": "GraphQL server for SilverStripe models and other data",
   "type": "silverstripe-module",
   "require": {
     "php": ">=5.5.0",
-    "silverstripe/framework": "~3.4.0",
-    "webonyx/graphql-php": "dev-master"
+    "silverstripe/framework": "~3.4.1",
+    "webonyx/graphql-php": "~0.7.2"
   },
   "require-dev": {
     "phpunit/PHPUnit": "~4.8"
   },
-  "extra": {
-    "branch-alias": {
-      "dev-master": "1.0.x-dev"
-    }
-  },
   "autoload": {
     "psr-4": {
-      "Chillu\\GraphQL\\": "src/"
+      "SilverStripe\\GraphQL\\": "src/"
     }
   },
   "config": {

@@ -1,8 +1,9 @@
 <?php
 
-namespace Chillu\GraphQL;
+namespace SilverStripe\GraphQL;
 
 use GraphQL\Type\Definition\Type;
+use SilverStripe\GraphQL\Manager;
 use Object;
 
 class FieldCreator extends Object

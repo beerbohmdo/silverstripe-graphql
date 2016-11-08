@@ -1,8 +1,9 @@
 <?php
 
-namespace Chillu\GraphQL;
+namespace SilverStripe\GraphQL;
 
 use GraphQL\Type\Definition\InputObjectType;
+use SilverStripe\GraphQL\Manager;
 use GraphQL\Type\Definition\ObjectType;
 use Object;
 
